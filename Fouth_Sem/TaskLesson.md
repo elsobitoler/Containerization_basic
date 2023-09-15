@@ -5,7 +5,7 @@
 Необходимо самостоятельно создать образ, используя Докерфайл:
 
 ```
-FROM ubuntu:22.10
+FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get install -y cowsay && \
     ln -s /usr/games/cowsay /usr/bin/cowsay && \
@@ -20,7 +20,7 @@ CMD [“cowsay”]
 Создайте файл example.txt и положить его рядом с докерфайлом. Наполните файл простыми данными (любыми) и сохраните. 
 Вот вам первый Dockerfile:
 ```
-FROM ubuntu:22.10
+FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get install -y cowsay && \
     ln -s /usr/games/cowsay /usr/bin/cowsay && \
