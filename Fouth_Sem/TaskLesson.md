@@ -6,8 +6,8 @@
 
 ```
 FROM ubuntu:22.04
-RUN apt-get update && \
-    apt-get install -y cowsay && \
+RUN apt-get update -q && \
+    apt-get install -yq cowsay && \
     ln -s /usr/games/cowsay /usr/bin/cowsay && \
     rm -rf /var/lib/apt/lists/*
 CMD [“cowsay”]
@@ -21,8 +21,8 @@ CMD [“cowsay”]
 Вот вам первый Dockerfile:
 ```
 FROM ubuntu:22.04
-RUN apt-get update && \
-    apt-get install -y cowsay && \
+RUN apt-get update -q && \
+    apt-get install -yq cowsay && \
     ln -s /usr/games/cowsay /usr/bin/cowsay && \
     rm -rf /var/lib/apt/lists/*
 COPY example.txt /
@@ -34,10 +34,10 @@ CMD [“cowsay”]
 И второй Dockerfile:
 
 ```
-FROM ubuntu:22.10
+FROM ubuntu:22.04
 COPY example.txt /
-RUN apt-get update && \
-    apt-get install -y cowsay && \
+RUN apt-get update -q && \
+    apt-get install -yq cowsay && \
     ln -s /usr/games/cowsay /usr/bin/cowsay && \
     rm -rf /var/lib/apt/lists/*
 CMD [“cowsay”]
@@ -52,9 +52,9 @@ CMD [“cowsay”]
 Собственно, докерфайл:
 
 ```
-FROM ubuntu:22.10
-RUN apt-get update && \
-    apt-get install -y nginx && \
+FROM ubuntu:22.04
+RUN apt-get update -q && \
+    apt-get install -yq nginx && \
     ln -s /usr/games/cowsay /usr/bin/cowsay && \
     rm -rf /var/lib/apt/lists/*
 RUN echo 'Hi, I am in your container' \
